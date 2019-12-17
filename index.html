@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Simple template</title>
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <h1>Template</h1>
+
+  <template id="a-paragraph">
+    <style>
+      p {
+        background-color: #64cca4;
+        color: #4d4b4b;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 1em;
+        padding: 1.2em;
+      }
+    </style>
+    <p><slot name="text">Text</slot></p>
+  </template>
+
+  <a-paragraph>
+    <span slot="text">First 'slot' component!</span>
+  </a-paragraph>
+
+  <a-paragraph>
+    <ul slot="text">
+      <li>Item 1</li>
+      <li>Item 2</li>
+    </ul>
+  </a-paragraph>
+
+</body>
+</html>
