@@ -2,11 +2,25 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Simple template</title>
-  <script src="main.js" defer></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Home Page">
+  <meta name="author" content="Wes O Copyright, 2019">
+  <title>JS - Web Components</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="main.js" defer ></script> 
 </head>
 <body>
-  <h1>Template</h1>
+    <nav>
+      <input type="checkbox" id="menu" />
+      <label for="menu" class="tri-bar">&#9776</label>
+      <div class="nav-links">
+        <a href="./templates/">Templates</a>
+        <a href="#">About</a>
+        <a href="https://github.com/wes-o/js-working-problems">Github</a>
+      </div>
+    </nav>
+<!-- Main Landing Page -->
+<!-- Web Component Templates -->
 
   <template id="a-paragraph">
     <style>
@@ -17,12 +31,19 @@
         font-size: 1em;
         padding: 1.2em;
       }
+      li {
+        font-style: italic;
+      }
     </style>
     <p><slot name="text">Text</slot></p>
   </template>
 
+  <!-- End of Templates -->
+
+  <h1 id="top">Greetings</h1>
+
   <a-paragraph>
-    <span slot="text">First 'slot' component!</span>
+    <span slot="text">Welcome to JS &lt;working&gt; problems with Web Components!</span>
   </a-paragraph>
 
   <a-paragraph>
@@ -31,6 +52,86 @@
       <li>Item 2</li>
     </ul>
   </a-paragraph>
+  
+  <a-paragraph>
+    <ul slot="text">
+      <li>Item 1</li>
+      <li>Item 2</li>
+    </ul>
+  </a-paragraph>
+  
+  <a-paragraph>
+    <ul slot="text">
+      <li>Item 1</li>
+      <li>Item 2</li>
+    </ul>
+  </a-paragraph>
+  
+  <a-paragraph>
+    <ul slot="text">
+      <li>Item 1</li>
+      <li>Item 2</li>
+    </ul>
+  </a-paragraph>
+    
+  <a-paragraph>
+    <ul slot="text">
+      <li>Item 1</li>
+      <li>Item 2</li>
+    </ul>
+  </a-paragraph>
+  
+  <a-paragraph>
+    <ul slot="text">
+      <li>Item 1</li>
+      <li>Item 2</li>
+    </ul>
+  </a-paragraph>
+  
+  <a-paragraph>
+    <ul slot="text">
+      <li>Item 1</li>
+      <li>Item 2</li>
+    </ul>
+  </a-paragraph>
+   
+  <a-paragraph>
+    <ul slot="text">
+      <li>Item 1</li>
+      <li>Item 2</li>
+    </ul>
+  </a-paragraph>
+   
+  <a-paragraph>
+    <ul slot="text">
+      <li>Item 1</li>
+      <li>Item 2</li>
+    </ul>
+  </a-paragraph>
+   
+  <a-paragraph>
+    <ul slot="text">
+      <li>Item 1</li>
+      <li>Item 2</li>
+    </ul>
+  </a-paragraph>
+  
+  <a-paragraph>
+    <ul slot="text">
+      <li>Item 1</li>
+      <li>Item 2</li>
+    </ul>
+  </a-paragraph>
+
+  <ul id="return-to-top" onclick="onLinkClick()"><li><a href="#top">TOP</a></li></ul>
+
+<br>
+<footer>
+  <div>
+    Wes O Copyright &copy; 2019
+    <p>Created and Maintained by <a href="https://github.com/wes-o">Wes O</a>.</p>
+  </div>
+</footer>
 
 </body>
 </html>
