@@ -33,6 +33,21 @@ customElements.define('elem-details',
   }
 );
 
+customElements.define('a-card',
+  class extends HTMLElement {
+    constructor() {
+      super();
+
+      const cardTemplate = document.getElementById('a-card');
+      const templateContent = cardTemplate.content;
+
+      this.attachShadow({mode: 'open'}).appendChild(
+        templateContent.cloneNode(true)
+      );
+    }
+  }
+);
+
 // PAGE VIEW EFFECTS
 // HTML Scroll-to-View Effect
 let scrollTop = onLinkClick = () =>
