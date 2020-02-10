@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A-Paragraph">
+  <meta name="author" content="Wes O Copyright, 2019">
+  <title>AParagraph</title>
+  <link rel="stylesheet" href="./a-paragraph.css">
+  <script src="./a-paragraph.js" defer></script>
+</head>
+<body>
+    <nav>
+        <input type="checkbox" id="menu" />
+        <label for="menu" class="tri-bar">&#9776</label>
+        <div class="nav-links">
+            <a href="../index.html">Home</a>
+            <a href="../templates/">Templates</a>
+            <a href="#">About</a>
+            <a href="https://github.com/wes-o/js-working-problems">Github</a>
+        </div>
+    </nav>
+
+<!-- a-paragraph Web Component -->
+
+<link rel="stylesheet" href="./a-paragraph.css">
+<template id="a-paragraph">
+    <style>
+        p {
+            background-color: #64cca4;
+            color: #4d4b4b;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 1em;
+            padding: 1.2em;
+        }
+        ul li {
+            font-style: italic;
+        }
+    </style>
+    <p>
+        <slot name="text">Text</slot>
+    </p>
+    <ul slot name="list">
+        <li>First</li>
+        <li>Second</li>
+        <li>Third</li>
+    </ul>
+</template>
+
+<a-paragraph>
+    <span slot="text">First &lt;slot&gt; component!</span>
+    <ul slot="list"></ul>
+</a-paragraph>
+
+<br>
+<footer>
+  <div>
+    Wes O Copyright &copy; 2019
+    <p>Created and Maintained by <a href="https://github.com/wes-o">Wes O</a>.</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+/* style.css */
+
+#menu, .tri-bar {
+    display: none;
+}
+nav {
+    background: #8dd10f;
+    opacity: 0.7;
+} 
+.nav-links {
+    display: flex;
+    flex-flow: row wrap;
+}
+.nav-links a {
+    text-decoration: none;
+    color: black;
+    padding: .25rem;
+    flex: 1 0;
+    text-align: center;
+} 
+.nav-links a:hover {
+    color: white;
+}
+
+@media screen and (max-width: 768px) {
+    
+nav {
+    padding: .5rem;
+    background: lightgrey;
+    position: fixed;
+    flex: 1;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-direction: column;
+}
+      
+.nav-links {
+display: none;
+}
+      
+.tri-bar {
+display: flex;
+}
+
+#menu:checked ~ .nav-links {
+display: flex;
+flex-direction: column;
+}
+
+}
+
+  
+
+  

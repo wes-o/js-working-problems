@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Templates">
+  <meta name="author" content="Wes O Copyright, 2019">
+  <title>JS - Web Components</title>
+  <link rel="stylesheet" href="../style.css">
+  <script src="../main.js" defer ></script>
+  
+</head>
+<body>
+    <nav>
+      <input type="checkbox" id="menu" />
+      <label for="menu" class="tri-bar">&#9776</label>
+      <div class="nav-links">
+        <a href="../index.html">Home</a>  
+        <a href="../templates/">Templates</a>
+        <a href="#">About</a>
+        <a href="https://github.com/wes-o/js-working-problems">Github</a>
+      </div>
+    </nav>
+<!-- Web Component Templates -->
+  
+<template id="a-paragraph">
+    <style>
+        p {
+            background-color: #64cca4;
+            color: #4d4b4b;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 1em;
+            padding: 1.2em;
+        }
+
+        ul li {
+            font-style: italic;
+        }
+    </style>
+    <p>
+        <slot name="text">Text</slot>
+    </p>
+</template>
+
+<template id="elem-details">
+    <style>
+    details {font-family: Verdana, Geneva, Tahoma, sans-serif}
+    .name {font-weight: bold; color: #1f74b4; font-size: 120%}
+    h4 { margin: 10px 0 -8px 0; }
+    h4 span { background: #217ac0; padding: 2px 6px 2px 6px }
+    h4 span { border: 1px solid #cee9f9; border-radius: 4px }
+    h4 span { color: white }
+    .attributes { margin-left: 22px; font-size: 90% }
+    .attributes p { margin-left: 16px; font-size: 80%; font-style: default }
+    .attributes ul li { border: 1px solid black; background:#b3b3b3; font-size: 110%; font-style: bold }
+    .attributes ul li p { font-size: 100%; font-style: italic; }
+    </style>
+    <details>
+      <summary>
+        <span>
+          <code class="name">&lt;<slot name="elem-name">ADD NAME</slot>&gt;</code>
+          <i class="desc">
+            <slot name="description">ADD DESCRIPTION</slot>
+          </i>
+        </span>
+      </summary>
+      <div class="attributes">
+        <h4><span>Attributes</span></h4>
+        <slot name="attributes">
+          <ul>
+            <li>Attribute<br>
+              <p>description</p>
+            </li>
+          </ul>
+        </slot>
+        <p>Add Attributes here. Or, more DOM elements</p>
+      </div>
+    </details>
+    <hr>
+</template>
+
+<template id="a-card">
+  <style>
+  p {
+      background-color: #64cca4;
+      color: #4d4b4b;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 1em;
+      padding: 1.2em;
+  }
+  .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(3rem, 1fr));
+    grid-gap: 0.5rem;
+    justify-content: left;
+    align-items: center;
+    margin: auto;
+    padding: 1rem 0;
+  }
+
+  .card {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 15rem auto;
+  height: 15rem;
+  background: #fff;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  border-color: #222;
+  border-radius: 10px;
+  margin: auto;
+  overflow: hidden;
+  }
+
+  .card-avatar {
+  width: 100%;
+  height: 10rem;
+  object-fit: cover;
+  }
+
+  .card-title {
+  color: #222;
+  font-weight: 700;
+  text-transform: capitalize;
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+  }
+
+  .card-link {
+  text-decoration: none;
+  background: #db4938;
+  color: #fff;
+  padding: 0.3rem 1rem;
+  border-radius: 20px;
+  }
+
+  </style>
+  <div class="container">
+    <div class="card">
+        <img class="card-avatar" src=${image} alt="card" />
+        <p>
+            <slot name="text">Text</slot>
+        </p>
+        <h1 class="card-title">${name}</h1>
+        <a class="card-link" href="#">Insert Link</a>
+    </div>
+    </div>
+</template>
+
+<!-- End of Templates -->
+
+<h1 id="top">Template Examples</h1>
+
+<a-paragraph>
+    <span slot="text"> &lt;a-paragraph&gt; component</span>
+</a-paragraph>
+<br>
+<elem-details>
+    <span slot="elem-name">a-paragraph</span>
+    <span slot="description">A customized built-in element..<em>inherits from DOM element</em><code> HTMLElement </code></span>
+</elem-details>
+<br>
+<a-card>
+  <span slot="text">1. &lt;a-card&gt; component!</span>
+  <h1 class="card-title">${name}</h1>
+  <a class="card-link"></a>
+</a-card>
+<a-card>
+  <span slot="text">2. &lt;a-card&gt; component!</span>
+  <h1 class="card-title">${name}</h1>
+  <a class="card-link"></a>
+</a-card>
+<a-card>
+  <span slot="text">3. &lt;a-card&gt; component!</span>
+  <h1 class="card-title">${name}</h1>
+  <a class="card-link"></a>
+</a-card>
+<br>
+
+<ul id="return-to-top"><li><a href="#top">TOP</a></li></ul>
+
+<br>
+<footer>
+  <div>
+    Wes O Copyright &copy; 2019
+    <p>Created and Maintained by <a href="https://github.com/wes-o">Wes O</a>.</p>
+  </div>
+</footer>
+
+</body>
+</html>
