@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A-Paragraph">
+  <meta name="author" content="Wes O Copyright, 2020">
+  <title>ACard</title>
+  <link rel="stylesheet" href="./a-card.css">
+  <script src="./a-card.js" defer></script>
+</head>
+<body>
+    <nav>
+        <input type="checkbox" id="menu" />
+        <label for="menu" class="tri-bar">&#9776</label>
+        <div class="nav-links">
+            <a href="../index.html">Home</a>
+            <a href="../templates/">Templates</a>
+            <a href="#">About</a>
+            <a href="https://github.com/wes-o/js-working-problems">Github</a>
+        </div>
+    </nav>
+
+<!-- a-card Web Component -->
+
+<link rel="stylesheet" href="./a-card.css">
+<template id="a-card">
+    <style>
+    p {
+        background-color: #64cca4;
+        color: #4d4b4b;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 1em;
+        padding: 1.2em;
+    }
+
+    a-card.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    grid-gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    padding: 1rem 0;
+    }
+
+    a-card.card {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 15rem auto;
+    height: 15rem;
+    background: #fff;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    border-radius: 10px;
+    margin: auto;
+    overflow: hidden;
+    }
+
+    a-card.card-avatar {
+    width: 100%;
+    height: 10rem;
+    object-fit: cover;
+    }
+
+    a-card.card-title {
+    color: #222;
+    font-weight: 700;
+    text-transform: capitalize;
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+    }
+
+    a-card.card-link {
+    text-decoration: none;
+    background: #db4938;
+    color: #fff;
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    }
+
+    </style>
+    <div class="card">
+        <img class="card-avatar" src=${image} alt="card" />
+        <p>
+            <slot name="text">Text</slot>
+        </p>
+        <h1 class="card-title">${name}</h1>
+        <a class="card-link" href="#">Insert Link</a>
+    </div>
+</template>
+
+<a-card>
+    <span slot="text"> &lt;a-card&gt; component!</span>
+    <h1 class="card-title">${name}</h1>
+    <a class="card-link"></a>
+</a-card>
+
+<br>
+<footer>
+  <div>
+    Wes O Copyright &copy; 2020
+    <p>Created and Maintained by <a href="https://github.com/wes-o">Wes O</a>.</p>
+  </div>
+</footer>
+
+</body>
+</html>
